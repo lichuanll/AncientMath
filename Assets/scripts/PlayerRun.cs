@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class PlayerRun : MonoBehaviour
 {
-    private Animation animation;
+    public float playerMoveSpeed;
+    public Rigidbody2D rigidbody2;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        animation = GetComponent<Animation>();
+        animator = GetComponent<Animator>();
+        rigidbody2 = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        PlayerMove();
+    }
+
+    void PlayerMove()
+    {
         //水平轴
         float horizontal = Input.GetAxis("Horizontal");
-        //向量
-        Vector2 dir = new Vector2(horizontal,0);
-        //面向向量
-        //transform.rotation = Quaternion.LookRotation(dir);
-        if(dir != Vector2.zero)
+        float faceNum = Input.GetAxisRaw("Horizontal");
+        rigidbody2.velocity=new Vector2(playerMoveSpeed*horizontal,rigidbody2.velocity.y);
+        if(horizontal !=0)
         {
-            transform.rotation=Quaternion.LookRotation(dir);
-            //播放跑步动画
-            //animation.SetBool("isWalking",true);
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+        if(faceNum != 0 )
+        {
+            transform.localScale = new Vector3(-faceNum, transform.localScale.y, transform.localScale.z);
         }
     }
 }
