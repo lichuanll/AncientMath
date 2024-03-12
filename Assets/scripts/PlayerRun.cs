@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerRun : MonoBehaviour
 {
+    public float scaleValue ;
     public float playerMoveSpeed;
     public Rigidbody2D rigidbody2;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        scaleValue = this.transform.localScale.x;
         animator = GetComponent<Animator>();
         rigidbody2 = GetComponent<Rigidbody2D>();
     }
@@ -36,9 +38,13 @@ public class PlayerRun : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        if(faceNum != 0 )
+        if(faceNum < 0 )
         {
-            transform.localScale = new Vector3(-faceNum, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-scaleValue, transform.localScale.y, transform.localScale.z);
+        }
+        else if (faceNum > 0)
+        {
+            transform.localScale = new Vector3(scaleValue, transform.localScale.y, transform.localScale.z);
         }
     }
 }
