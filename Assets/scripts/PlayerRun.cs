@@ -7,9 +7,12 @@ public class PlayerRun : MonoBehaviour
     public float playerMoveSpeed;
     public Rigidbody2D rigidbody2;
     public Animator animator;
+
+    private float XScale;
     // Start is called before the first frame update
     void Start()
     {
+        XScale = this.transform.localScale.x;
         animator = GetComponent<Animator>();
         rigidbody2 = GetComponent<Rigidbody2D>();
     }
@@ -26,7 +29,8 @@ public class PlayerRun : MonoBehaviour
         //Ë®Æ½Öá
         float horizontal = Input.GetAxis("Horizontal");
         float faceNum = Input.GetAxisRaw("Horizontal");
-        rigidbody2.velocity=new Vector2(playerMoveSpeed*horizontal,rigidbody2.velocity.y);
+        print(faceNum);
+        rigidbody2.velocity=new Vector2(playerMoveSpeed * horizontal,rigidbody2.velocity.y);
         if(horizontal !=0)
         {
             animator.SetBool("isWalking", true);
@@ -36,9 +40,13 @@ public class PlayerRun : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        if(faceNum != 0 )
+        if(faceNum > 0 )
         {
-            transform.localScale = new Vector3(-faceNum, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(XScale, transform.localScale.y, transform.localScale.z);
+        }
+        else if (faceNum < 0)
+        {
+            transform.localScale = new Vector3(-XScale, transform.localScale.y, transform.localScale.z);
         }
     }
 }
