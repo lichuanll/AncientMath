@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: face
@@ -567,7 +569,8 @@ ScriptedImporter:
     - {x: 39, y: 40}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -279, y: -448}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 283, y: 452}
   - name: arm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -987,7 +990,8 @@ ScriptedImporter:
     - {x: 27, y: 34}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 460, y: -468}
+    uvTransform: {x: 895, y: 4}
+    spritePosition: {x: 435, y: 472}
   - name: body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1409,7 +1413,8 @@ ScriptedImporter:
     - {x: 33, y: 34}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 207, y: -309}
+    uvTransform: {x: 525, y: 4}
+    spritePosition: {x: 318, y: 313}
   - name: arm2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1808,7 +1813,8 @@ ScriptedImporter:
     - {x: 28, y: 29}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 582, y: -274}
+    uvTransform: {x: 895, y: 204}
+    spritePosition: {x: 313, y: 478}
   - name: leg2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2278,7 +2284,8 @@ ScriptedImporter:
     - {x: 29, y: 30}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 332, y: -61}
+    uvTransform: {x: 726, y: 233}
+    spritePosition: {x: 394, y: 294}
   - name: leg
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2699,7 +2706,8 @@ ScriptedImporter:
     - {x: 28, y: 29}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 399, y: -268}
+    uvTransform: {x: 726, y: 4}
+    spritePosition: {x: 327, y: 272}
   characterData:
     bones:
     - name: bone_1
