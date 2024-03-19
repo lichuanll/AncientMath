@@ -4,30 +4,31 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "New Bag",menuName = "Bag/Bag")]
+
 public class Bag : MonoBehaviour
 {
     public string Name;
     public Sprite Ico;
     public List<Item> Items;
-    public List<string> ItemsIntro;
     public Sprite Plane;
     public int RowCount;
-    
     public int ColCount;
-    public void AddItem()
+    public void AddItem(Item item)
     {
+        Items.Add(item);
     }
 
     public void ShowBag()
     {
+        gameObject.SetActive(true);
         GameObject ItemUI;
         for (int i = 0; i < Items.Count; i++)
         {
             ItemUI = this.transform.GetChild(i).gameObject;
+            ItemUI.SetActive(true);
             Image ico = ItemUI.GetComponent<Image>();
             ico.sprite = Items[i].Ico;
-            ItemsIntro[i] = Items[i].Intro;
+            ItemUI.GetComponent<ItemButton>().Intro = Items[i].Intro;
         }
     }
 }

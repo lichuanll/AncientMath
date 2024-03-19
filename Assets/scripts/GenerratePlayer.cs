@@ -7,7 +7,7 @@ public class GenerratePlayer : MonoBehaviour
 {
     public static int Sex;
 
-    [SerializeField] private CinemachineVirtualCamera camera;
+    [SerializeField] private CinemachineVirtualCamera m_camera;
     [SerializeField] private GameObject Man;
 
     [SerializeField] private GameObject Woman;
@@ -16,7 +16,7 @@ public class GenerratePlayer : MonoBehaviour
     {
         Instantiate(Man, this.transform.position,Quaternion.identity);
         //Man.transform.SetParent(this.transform);
-        camera.Follow = Man.transform;
+        m_camera.Follow = Man.transform;
     }
 
    
