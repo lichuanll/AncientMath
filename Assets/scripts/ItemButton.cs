@@ -6,20 +6,22 @@ using UnityEngine.UI;
 public class ItemButton : MonoBehaviour
 {
     private Button button;
-    private Text Intro;
-    private Bag bagIntro;
+    public string Intro;
+
+    private GameObject ItemIntro;
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(ShowIntro);
+        ItemIntro = this.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void ShowIntro()
     {
+        ItemIntro.SetActive(true);
         print("Show");
-        bagIntro = GetComponentInParent<Bag>();
-        Intro.text = "父物体上的物品介绍";
+        print(Intro);
     }
 }
