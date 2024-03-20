@@ -11,12 +11,15 @@ public class GenerratePlayer : MonoBehaviour
     [SerializeField] private GameObject Man;
 
     [SerializeField] private GameObject Woman;
+
+    private GameObject Instance;
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(Man, this.transform.position,Quaternion.identity);
+        Instance = Instantiate(Man, this.transform.position,Quaternion.identity);
         //Man.transform.SetParent(this.transform);
-        m_camera.Follow = Man.transform;
+        m_camera.Follow = Instance.transform;
+        
     }
 
    
