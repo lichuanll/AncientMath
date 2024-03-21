@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,14 @@ public class PlayerRun : MonoBehaviour
     public float playerMoveSpeed;
     public Rigidbody2D rigidbody2;
     public Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
         scaleValue = this.transform.localScale.x;
         animator = GetComponent<Animator>();
         rigidbody2 = GetComponent<Rigidbody2D>();
+       
     }
 
     // Update is called once per frame
