@@ -7,6 +7,7 @@ public class Item : ScriptableObject
 {
     // Start is called before the first frame update
     public Sprite Ico;
-    public string name;
+    public Sprite Image;
+    public string Name;
     [TextArea] public string Intro;
 }

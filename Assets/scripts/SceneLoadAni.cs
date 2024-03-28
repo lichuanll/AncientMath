@@ -29,8 +29,8 @@ public class SceneLoadAni : MonoBehaviour
         animator.SetBool("FadeIn",true);
         animator.SetBool("FadeOut", false);
         yield return new WaitForSeconds(2);
-       AsyncOperation async = SceneManager.LoadSceneAsync(index);
-       async.completed += OnLoadedScene;
+        AsyncOperation async = SceneManager.LoadSceneAsync(index);
+        async.completed += OnLoadedScene;
     }
 
     void OnLoadedScene(AsyncOperation obj)
