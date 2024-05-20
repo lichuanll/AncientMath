@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,12 @@ public class PlayerRuninLevel : MonoBehaviour
     public float playerMoveSpeed;
     public Rigidbody2D rigidbody2;
     public Animator animator;
-
-    private Vector3 offset;
+    
+    private float offsetX;
+    private float offsetY;
     // Start is called before the first frame update
     void Start()
     {
-        offset = Camera.main.transform.position-transform.position;
-
         scaleValue = this.transform.localScale.x;
         animator = GetComponent<Animator>();
         rigidbody2 = GetComponent<Rigidbody2D>();
@@ -51,7 +51,5 @@ public class PlayerRuninLevel : MonoBehaviour
         {
             transform.localScale = new Vector3(scaleValue, transform.localScale.y, transform.localScale.z);
         }
-
-        Camera.main.transform.position = transform.position + offset;
     }
 }

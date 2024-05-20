@@ -14,6 +14,7 @@ public class FacingCamera : MonoBehaviour
         {
             childs[i] = transform.GetChild(i);
         }
+
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class FacingCamera : MonoBehaviour
         for(int i = 0;i < childs.Length;i++) 
         {
             childs[i].rotation = Camera.main.transform.rotation;
+
         }
     }
 }
