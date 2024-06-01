@@ -10,8 +10,7 @@ public class PlayerRuninLevel : MonoBehaviour
     public Rigidbody2D rigidbody2;
     public Animator animator;
     
-    private float offsetX;
-    private float offsetY;
+   
     // Start is called before the first frame update
     void Start()
     {

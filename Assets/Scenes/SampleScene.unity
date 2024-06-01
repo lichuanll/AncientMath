@@ -2109,15 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8d483dc990a04488a8340258a7f5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_camera: {fileID: 0}
-  parentTransform: {fileID: 436429968}
-  Man: {fileID: 3388628296077951911, guid: 368e689e97b16a742987d131d6000785, type: 3}
-  Woman: {fileID: 1923816116538188195, guid: 6beaca40207305c44a113b33a9ad4472, type: 3}
-  EnSureManButton: {fileID: 2114991035}
-  EnSureWoManButton: {fileID: 684700843}
-  ManComics: {fileID: 0}
-  WomanComics: {fileID: 0}
-  SelectRoleUI: {fileID: 0}
+  s: {fileID: 0}
 --- !u!1 &456369351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &751476676
 MonoBehaviour:
   m_ObjectHideFlags: 0
