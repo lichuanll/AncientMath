@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour
 {
-    public Button button; 
+    public Button button;
+    public GameObject startPanel;
+    public GameObject SelectRoleUI;
     // Start is called before the first frame update
-    public void StartMenu()
+    public void OnStartButtonPressed()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        startPanel.SetActive(false);
+        SelectRoleUI.SetActive(true);
     }
 
     // Update is called once per frame
