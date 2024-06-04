@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,23 +7,41 @@ using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 
-public class BagPlaneUI : MonoBehaviour
+public class BagPlaneUI : MonoBehaviour,INeedPopUpWindow
 {
-    public string Name;
-    public Sprite Ico;
+    //public string Name;
+    //public Sprite Ico;
+
     [SerializeField] private ItemListSO itemListSO;
-    public Sprite Plane;
-    private int MaxCount=30;
+    private List<Item> CurItem;
+    //public Sprite Plane;
+    private int MaxCount = 30;
+    private const string WINDOW_TEXT = "已纳入知识锦囊";
+
+    public event EventHandler<INeedPopUpWindow.OnPopUpWindowEventArgs> OnPopUpWindow;
 
     private void Start()
     {
+        Player.Instance.OnAddedBagObject += Player_OnAddedBagObject;
         Hide();
     }
+
+    private void Player_OnAddedBagObject(object sender, EventArgs e)
+    {
+        AddItem(Player.Instance.GetbagObjectSO());
+    }
+
     public void AddItem(Item item)
     {
-        if (itemListSO.itemList.Count < MaxCount)
+        if (CurItem.Count < MaxCount)
         {
-            itemListSO.itemList.Add(item);
+            CurItem.Add(item);
+
+            string windowText = item.Name + WINDOW_TEXT;
+            OnPopUpWindow?.Invoke(this, new INeedPopUpWindow.OnPopUpWindowEventArgs
+            {
+                windowContent = windowText
+            });
         }
     }
 
@@ -31,11 +50,11 @@ public class BagPlaneUI : MonoBehaviour
         gameObject.SetActive(true);
         GameObject ItemUI;
        
-        for (int i = 0; i < itemListSO.itemList.Count; i++)
+        for (int i = 0; i < CurItem.Count; i++)
         {
             ItemUI = this.transform.GetChild(i).gameObject;
             ItemUI.SetActive(true);
-            AddItemData(ItemUI, itemListSO.itemList[i]);
+            AddItemData(ItemUI, CurItem[i]);
             //Image ico = ItemUI.GetComponent<Image>();
             //ico.sprite = Items[i].Ico;
             //ItemButton itemButton = ItemUI.GetComponent<ItemButton>();
@@ -50,6 +69,7 @@ public class BagPlaneUI : MonoBehaviour
     {
         Image ico = ItemUI.GetComponent<Image>();
         ico.sprite = item.Ico;
+
         ItemButtonUI itemButton = ItemUI.GetComponent<ItemButtonUI>();
         itemButton.Intro = item.Intro;
         itemButton.Name = item.Name;
