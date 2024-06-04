@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerRuninLevel : MonoBehaviour
 {
-    public float scaleValue;
+    private float scaleValue;
     public float playerMoveSpeed;
     public Rigidbody2D rigidbody2;
     public Animator animator;
-    
-   
+
+    private const string IS_WALKING = "isWalking";
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +35,11 @@ public class PlayerRuninLevel : MonoBehaviour
         rigidbody2.velocity = new Vector2( horizontal, vertical).normalized*playerMoveSpeed;
         if (horizontal != 0 || vertical != 0)
         {
-            animator.SetBool("isWalking", true);
+            animator.SetBool(IS_WALKING, true);
         }
         else
         {
-            animator.SetBool("isWalking", false);
+            animator.SetBool(IS_WALKING, false);
         }
 
         if (faceNum < 0)
