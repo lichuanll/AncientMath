@@ -9,7 +9,7 @@ public class PopUpUI : MonoBehaviour
     [SerializeField] Animation _animation;
     [SerializeField] TextMeshProUGUI popUpText;
     [SerializeField] GameObject needWindowPopUp;
-
+    private const float SHOW_UI_TIME = 2f;
     private void Start()
     {
         needPopUpWindow = needWindowPopUp.GetComponent<INeedPopUpWindow>();
@@ -28,7 +28,7 @@ public class PopUpUI : MonoBehaviour
     {
         popUpText.text = e.windowContent;
         Show();
-        Invoke("Hide", 2f);
+        Invoke("Hide", SHOW_UI_TIME);
     }
 
     private void Show()
